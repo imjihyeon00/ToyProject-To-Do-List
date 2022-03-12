@@ -1,6 +1,30 @@
 @charset "utf-8";
+@import url("default.css");
 
 /* LAYOUT */
-.wrap {background-color: #E5E5E5;}
-.wrap > .inner {max-width:1130px; margin:0 auto; padding:0 100px;}
+#wrap {background-color: #E5E5E5; padding-top: 70px;}
+.wrap > .inner {max-width:1130px; margin:0 auto;}
 .wrap > .inner:after {content:""; display:block; height:0; visibility:hidden; clear:both;}
+
+/* 공통 */
+.mBlock {display:none;}
+.mNone {display:block;}
+
+@media only all and (max-width:1025px) {/*기본 1025 + 패딩 20 이하 태블릿 */
+	.wrap .inner {padding:0 20px;}
+}
+@media only all and (max-width:759px) {/*기본 759 + 패딩 15 이하 모바일 */
+	.wrap > .inner {padding:0 15px;}
+	.mBlock {display:block;}
+    .mNone {display:none;}
+}
+
+/* HEADER */
+header {text-align: center; margin-bottom: 25px;}
+header h1 {font-size: 2.5rem; font-weight: bold;}
+
+
+/* btnArea */
+.btnArea {text-align: right;}
+.btnArea button {border-radius: 8px; padding: 5px 24px; font-size: 1rem; font-weight: 500; margin-right: 10px;}
+.btnArea button:last-child {margin-right: 0;}
