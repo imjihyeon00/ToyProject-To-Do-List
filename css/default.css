@@ -1,0 +1,44 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900&subset=korean');
+
+/* reset CSS */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed,  figure, figcaption, footer, header, hgroup,  menu, nav, output, ruby, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+h1, h2, h3, h4, h5, h6 { font-size:100%; font-weight:normal; }
+table, img, fieldset { border:none; }
+table { border-collapse:collapse; border-spacing:0; width:100%; table-layout:fixed;/* 테이블 넓이값 고정 */ word-break:break-all;/* 글씨 넘칠씨 자동 줄바꿈. */}
+ul, ol, li { list-style:none; }
+address,caption,cite,code,dfn,em,strong,th,var { font-style:normal; font-weight:normal; }
+caption,th, td {text-align:left;}
+abbr,acronym { border:0; }
+input, select, textarea, form img { vertical-align:middle; }
+header, footer, section, article, aside, nav, hgroup, details, menu, figure, figcaption {display: block }
+img, picture, video, canvas, svg {display: block; max-width:100%;}
+
+/* FONT */
+body, input, select, textarea { font:100% "Noto Sans KR", "맑은 고딕", "Malgun Gothic", Dotum, "돋움", "애플 SD 산돌고딕 Neo", "Apple SD Gothic Neo", Ngothic, sans-serif; color:#222; font-weight:400;/*  letter-spacing:-0.5px; */}
+
+html, body {font-size: 16px;}
+
+@media only all and (max-width:759px) {/*기본 759 + 패딩 15 이하 모바일 */
+	html,body {font-size:14px;}
+}
+
+a, a:active, a:hover {text-decoration:none}
+button {border:0;background-color:transparent;cursor:pointer}
+
+/* Form Style */
+input[type="text"], input[type="password"], input.text, select, textarea {transition:all 0.3s; height:50px; vertical-align:middle; box-sizing:border-box; border:solid 1px #dddddd; padding:0px 20px;background:#fff; color:#999; border-radius:5px;}
+input[type="text"]:hover, input[type="password"]:hover, input.text:hover, select:hover, textarea:hover {transition:all 0.3s; border-color:#222;}
+input[type="text"]:focus, input[type="password"]:focus, input.text:focus, select:focus, textarea:focus {transition:all 0.3s; border-color:#222; box-shadow:3px 3px 0px rgba(0,0,0,0.15); color:#222; outline: none;}
+input[type="text"].error, input[type="password"].error, input.text.error, select.error, textarea.error {border-color:#e60039;}
+textarea {resize:none;}
+::-ms-clear, ::-ms-reveal {display: none;}
+input::placeholder {color:#ccc;}
+
+
+
+.clearFix:after {content:""; display: block; clear: both; visibility: hidden; line-height: 0; height: 0;}

@@ -1,0 +1,6 @@
+@charset "utf-8";
+
+/* LAYOUT */
+.wrap {background-color: #E5E5E5;}
+.wrap > .inner {max-width:1130px; margin:0 auto; padding:0 100px;}
+.wrap > .inner:after {content:""; display:block; height:0; visibility:hidden; clear:both;}
