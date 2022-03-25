@@ -55,5 +55,3 @@ input::placeholder {color:#ccc;}
 .addBtn:hover {background-color: var(--green); color: #fff;}
 .delBtn {background-color: #fff; color: var(--red);}
 .delBtn:hover {background-color: var(--red); color: #fff;}
-.roundBtn {}
-.roundBtn.del {}
