@@ -3,7 +3,7 @@
 
 /* LAYOUT */
 body {background-color: #E5E5E5;}
-#wrap {background-color: #E5E5E5; padding-top: 70px 0;}
+#wrap {background-color: #E5E5E5; padding: 70px 0;}
 .wrap > .inner {max-width:1130px; margin:0 auto; padding: 0 25px;}
 .wrap > .inner:after {content:""; display:block; height:0; visibility:hidden; clear:both;}
 
@@ -35,13 +35,16 @@ header h1 {font-size: 2.5rem; font-weight: bold;}
 /* .boxArea {display: flex; gap: 40px; justify-content: left; flex-wrap: wrap;} */
 .boxArea {display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 40px; max-width:1130px; margin: 0 auto;}
 .boxArea .in {padding: 20px;}
-.boxArea .boxLabel {display: inline-block; background-color: #fff; max-width: 350px; width: 100%; border-radius: 10px;}
+.boxArea .boxLabel {display: inline-block; background-color: #fff; max-width: 350px; width: 100%; border-radius: 10px; box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 20%);}
 .boxArea .box {border-radius: 10px;}
 .boxArea .boxLabel input:checked+.box {border: 2px solid var(--red);}
-.box .title {font-size: 1.37rem; border-bottom: 1px solid var(--gray); font-weight: 500; line-height: 1;}
-.box .title span{display: block; padding-top: 10px;}
-.box .title .date {font-size: 0.8rem; color: var(--gray);}
-.box .title .listCount {font-size: 0.8rem; color: var(--green); font-weight: 600; padding-top: 30px;}
+.box {position: relative;}
+.box .title {border-bottom: 1px solid var(--gray);line-height: 1;}
+.box .title input {width: 100%; padding: 0; font-size: 1.37rem; line-height: 1.5;  font-weight: 500; }
+.box .title .tit {font-size: 1.37rem; line-height: 1.5;  font-weight: 500; }
+.box .title span{display: block; }
+.box .title .date {font-size: 0.8rem; color: var(--gray); padding-top: 5px;}
+.box .title .listCount {font-size: 0.85rem; color: var(--green); font-weight: 600; padding-top: 30px;}
 .box .toDoLists {}
 .box .toDoLists .in {}
 .box .toDoLists ul {min-height: 280px; height: 280px; overflow-y: auto;}
@@ -49,14 +52,22 @@ header h1 {font-size: 2.5rem; font-weight: bold;}
 .box .toDoLists ul::-webkit-scrollbar-thumb { background-color: #2f3542; border-radius: 10px;}
 .box .toDoLists ul::-webkit-scrollbar-track { background-color: grey; border-radius: 10px;}
 .box .toDoLists ul li {margin-bottom: 10px; position: relative;}
-.box .toDoLists li label {position: relative; }
+.box .toDoLists li label {position: relative; font-size: 1rem;}
 .box .toDoLists li label::before {content: ''; display: inline-block; width: 24px; height: 24px; margin-right: 10px; border: 2px solid #ccc; border-radius: 50%; vertical-align: middle; cursor: pointer;}
 .box .toDoLists li input:checked+label {color: #ccc;}
 .box .toDoLists li input:checked+label:before {border-color: var(--green);}
 .box .toDoLists li input:checked+label:after {content: ''; position: absolute; width: 7px; height: 13px; border-bottom: 2px solid var(--green); border-right: 2px solid var(--green); left: 14px; top: 50%; transform: translate(-50%, -50%) rotate(45deg);}
-.box .toDoLists ul li .delBtn {position: absolute; right: 0; top: 0; width: 23px; height: 23px; background: url(/image/trash_gray.png) no-repeat center / contain; cursor: pointer;}
-.box .toDoLists ul li .delBtn:hover {background-image: url(/image/trash_red.png);}
-/* 7 13 */
+.box .toDoLists ul li .delListBtn {position: absolute; right: 0; top: 0; width: 23px; height: 23px; background: url(/image/trash_gray.png) no-repeat center / contain; cursor: pointer;}
+.box .toDoLists ul li .delListBtn:hover {background-image: url(/image/trash_red.png);}
+.box .addToDoArea {display: none; position: absolute; bottom: 0; left: 0; right: 0; background-color: #f5f5f5; border-top: 1px solid #E7E7E7; border-radius: 0 0 10px 10px;}
+.box .addToDoArea input {width: 100%; padding: 0; font-size: 1rem; height: 2.5rem; margin: 10px 0 20px; }
+
+.toDoBtn {position: absolute; left: 50%;bottom: 0; transform: translate(-50%, 50%); background: url(/image/plus.png) no-repeat center ;  width: 3.6em; height: 3.6em; transition: all .4s; border-radius: 50%;}
+.addToDo {background-color: var(--green);}
+.addToDo:hover {transform: translate(-50%, 50%) rotate(180deg);}
+.exitToDo {background-color: var(--red); transform: translate(-50%, 50%) rotate(45deg);}
+.exitToDo:hover {transform: translate(-50%, 50%) rotate(225deg);}
+
 
 @media only all and (max-width:1179px){
 	.boxArea {gap:40px 20px; max-width:740px;}
@@ -68,6 +79,5 @@ header h1 {font-size: 2.5rem; font-weight: bold;}
 
 }
 @media only all and (max-width:759px) {/*기본 759 + 패딩 15 이하 모바일 */
-	.boxArea {gap: 20px;}
 	.boxArea .in {padding: 15px;}
 }
