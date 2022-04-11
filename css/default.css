@@ -57,3 +57,16 @@ input::placeholder {color:#ccc;}
 .delBtn {background-color: #fff; color: var(--red);}
 .delBtn.active {background-color: var(--red); color: #fff;}
 .delBtn:hover {background-color: var(--red); color: #fff;}
+
+
+/* layer & Mask */
+#mask { /* display: none; */ position: fixed; background: #000; z-index: 99999; opacity: .7; top: 0; bottom: 0; left: 0; right: 0;}
+
+.layer {position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 100000; display: flex; align-items: center; justify-content: center;}
+/* .layer .layerInner {margin:0 auto; padding: 0 25px; max-width: 400px;} */
+.layer .layerInner {padding: 0 25px; }
+.layer .layerInner .layerBox { background-color: #fff;}
+.layer .layerBox .layerTxttArea {}
+.layer .layerBox .layerTxttArea span {font-weight: bold;}
+.layer .layerBox .layerBtnArea {display: flex; }
+.layer .layerBox .layerBtnArea button {}
