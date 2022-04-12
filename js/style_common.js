@@ -45,7 +45,12 @@ function addToDoBox() {
 }
 
 function deleteToDoBox() {
-    delBtn.classList.toggle('active');
+
+    if(delBtn.classList.contains('active')){
+        layerOpen('#delModal');
+    }
+
+    delBtn.classList.add('active');
     document.querySelectorAll('.checkBoxs').forEach(function (box) {
         if(box.disabled){
             box.disabled = false;
@@ -71,4 +76,15 @@ function EnterCheck(event) {
     if(event.keyCode == 13){
         console.log('gg');
    }
+}
+
+function modalNoBtn() {
+    document.querySelectorAll('.checkBoxs').forEach(function (box) {
+        if(box.disabled){
+            box.disabled = false;
+        } else {
+            document.querySelectorAll('.checkBoxs').forEach(function (box){box.checked = false});
+            box.disabled = true;
+        }
+    });
 }

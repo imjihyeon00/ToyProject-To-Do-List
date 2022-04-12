@@ -137,15 +137,15 @@
     </div>
 
 
-    <div class="layer">
+    <div class="layer" id="delModal">
         <div class="layerInner">
             <div class="layerBox">
-                <div class="layerTxttArea">
+                <div class="layerTxtArea">
                     정말로 <span>삭제</span>하시겠습니까?
                 </div>
                 <div class="layerBtnArea">
                     <button type="button">예</button>
-                    <button type="button">아니오</button>
+                    <button type="button" onclick="modalNoBtn">아니오</button>
                 </div>
             </div>
         </div>
@@ -153,5 +153,6 @@
     <div id="mask"></div>
     
     <script src="./js/style_common.js"></script>
+    <script src="./js/common.js"></script>
 </body>
 </html>
