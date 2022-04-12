@@ -65,9 +65,9 @@ input::placeholder {color:#ccc;}
 .layer {display: none; /*display: flex;*/ position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 100000; align-items: center; justify-content: center;}
 .layer .layerInner {padding: 0 25px; }
 .layer .layerInner .layerBox { background-color: #fff; padding: 15px 25px; width: 300px; border-radius: 5px; box-shadow: 0px 0px 8px 0px rgb(0 0 0 / 70%);}
-.layer .layerBox .layerTxtArea {font-size: 1.25rem; line-height: 1.5; text-align: center;}
+.layer .layerBox .layerTxtArea {font-size: 1.25rem; color: #222; line-height: 1.5; text-align: center;}
 .layer .layerBox .layerTxtArea span {font-weight: bold;}
 .layer .layerBox .layerBtnArea {display: flex; justify-content: space-between; align-items: center; gap: 0 15px; margin-top: 30px;}
-.layer .layerBox .layerBtnArea button {width: 50%; font-size: 1rem; line-height: 2; border-radius: 3px; border: 1px solid var(--red); transition: all .3s;}
+.layer .layerBox .layerBtnArea button {width: 50%; font-size: 1rem; color: #222; line-height: 2; border-radius: 3px; border: 1px solid var(--red); transition: all .3s;}
 .layer .layerBox .layerBtnArea button:hover {box-shadow: 0px 0px 8px 0px rgb(0 0 0 / 30%);}
 .layer .layerBox .layerBtnArea button:last-child {background-color: var(--red); color: #fff;}

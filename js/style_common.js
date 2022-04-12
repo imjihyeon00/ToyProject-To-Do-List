@@ -9,17 +9,21 @@ toDoBtns.forEach(function(toDoBtn,i){
     toDoBtn.addEventListener('click', function(){ toDoBtnClick(this) });
 });
 
+//변수
+let isNewBox = false;
 
 //function
 function addToDoBox() {
-    console.log('a');
+    const dayList = ['일', '월', '화', '수', '목', '금', '토'];
+    const date = new Date();
+
     let txt = 
     `<input type="checkbox" id="box4" class="checkBoxs" disabled>
     <div class="box">
         <div class="title">
             <div class="in">
-                <input type="text" placeholder="제목을 입력해 주세요." onkeydown="JavaScript:EnterCheck();" />
-                <span class="date">2022년 x월 x일 x요일 </span>
+                <input class="toDoListTit" type="text" placeholder="제목을 입력해 주세요." onkeyup="enterCheck();" />
+                <span class="date">${date.getFullYear()}년 ${date.getMonth() + 1}월 ${date.getDate()}일 ${dayList[date.getDay()]}요일 </span>
                 <span class="listCount">할 일이 n개 남았습니다.</span>
             </div>
         </div>
@@ -37,28 +41,18 @@ function addToDoBox() {
         </div>
         <button class="toDoBtn addToDo" type="button"></button>
     </div>`;
-    const label = document.createElement('label');
-    label.classList.add('boxLabel');
-    label.innerHTML =txt;
-    // label.htmlFor = 'some-input-id';
-    document.querySelector('.boxArea').appendChild(label)
-}
 
-function deleteToDoBox() {
-
-    if(delBtn.classList.contains('active')){
-        layerOpen('#delModal');
+    
+    if (!isNewBox) {
+        const label = document.createElement('label');
+        label.classList.add('boxLabel');
+        label.innerHTML =txt;
+        document.querySelector('.boxArea').appendChild(label);
+    } else {
+        alert('이미 새로운 To Do List가 존재합니다. 제목을 입력해 주세요.')
     }
 
-    delBtn.classList.add('active');
-    document.querySelectorAll('.checkBoxs').forEach(function (box) {
-        if(box.disabled){
-            box.disabled = false;
-        } else {
-            document.querySelectorAll('.checkBoxs').forEach(function (box){box.checked = false});
-            box.disabled = true;
-        }
-    });
+    isNewBox = true;
 }
 
 function toDoBtnClick(btn) {
@@ -72,19 +66,58 @@ function toDoBtnClick(btn) {
     }
 }
 
-function EnterCheck(event) {
-    if(event.keyCode == 13){
+function enterCheck() {
+    if(window.event.keyCode == 13){
         console.log('gg');
-   }
+    }
+}
+
+function deleteToDoBox() {
+    let isChk = false;
+    const checkBoxs = document.querySelectorAll('.checkBoxs');
+    // active가 없을 때
+    // 1. active 추가
+    // 2. list 선택 가능
+    // active가 있을 때
+    // 1. 모달창 뜸
+    // 1-1. 예 : 선택된 모달창 삭제
+    // 1-2. 아니오 : 선택된 모달창 해제
+    // 3. active 제거
+
+    if(!delBtn.classList.contains('active')){
+        delBtn.classList.add('active');
+        checkBoxs.forEach(function (checkBox) {
+            checkBox.disabled = false;
+        });
+    } else {
+
+        for(var i=0;i<checkBoxs.length;i++){
+            if(checkBoxs[i].checked == true){
+                isChk = true;
+                break;
+            }
+        }
+
+        if(isChk) {
+            layerOpen('#delModal');
+        } else {
+            checkBoxs.forEach(function (checkBox) {
+                checkBox.disabled = true;
+            });
+            
+            delBtn.classList.remove('active');
+        }
+    }
 }
 
 function modalNoBtn() {
-    document.querySelectorAll('.checkBoxs').forEach(function (box) {
-        if(box.disabled){
-            box.disabled = false;
-        } else {
-            document.querySelectorAll('.checkBoxs').forEach(function (box){box.checked = false});
-            box.disabled = true;
-        }
+    const checkBoxs = document.querySelectorAll('.checkBoxs');
+
+    checkBoxs.forEach(function (checkBox) {
+        checkBox.checked = false;
+        checkBox.disabled = true;
     });
+    
+    delBtn.classList.remove('active');
+    layerClose('#delModal');
 }

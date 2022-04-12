@@ -22,3 +22,8 @@ function layerClose(id){
     document.querySelector('body').style.overflow = '';
     $mask.style.cssText = `z-index: 99999; display: none;`;
 }
+
+
+function  init() {
+    
+}

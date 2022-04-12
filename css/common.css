@@ -1,5 +1,5 @@
 @charset "utf-8";
-@import url("default.css");
+@import url("./default.css");
 
 /* LAYOUT */
 body {background-color: #E5E5E5;}
@@ -57,12 +57,12 @@ header h1 {font-size: 2.5rem; font-weight: bold;}
 .box .toDoLists li input:checked+label {color: #ccc;}
 .box .toDoLists li input:checked+label:before {border-color: var(--green);}
 .box .toDoLists li input:checked+label:after {content: ''; position: absolute; width: 7px; height: 13px; border-bottom: 2px solid var(--green); border-right: 2px solid var(--green); left: 14px; top: 50%; transform: translate(-50%, -50%) rotate(45deg);}
-.box .toDoLists ul li .delListBtn {position: absolute; right: 0; top: 0; width: 23px; height: 23px; background: url(/image/trash_gray.png) no-repeat center / contain; cursor: pointer;}
-.box .toDoLists ul li .delListBtn:hover {background-image: url(/image/trash_red.png);}
+.box .toDoLists ul li .delListBtn {position: absolute; right: 0; top: 0; width: 23px; height: 23px; background: url(../image/trash_gray.png) no-repeat center / contain; cursor: pointer;}
+.box .toDoLists ul li .delListBtn:hover {background-image: url(../image/trash_red.png);}
 .box .addToDoArea {display: none; position: absolute; bottom: 0; left: 0; right: 0; background-color: #f5f5f5; border-top: 1px solid #E7E7E7; border-radius: 0 0 10px 10px;}
 .box .addToDoArea input {width: 100%; padding: 0; font-size: 1rem; height: 2.5rem; margin: 10px 0 20px; }
 
-.toDoBtn {position: absolute; left: 50%;bottom: 0; transform: translate(-50%, 50%); background: url(/image/plus.png) no-repeat center ;  width: 3.6em; height: 3.6em; transition: all .4s; border-radius: 50%;}
+.toDoBtn {position: absolute; left: 50%;bottom: 0; transform: translate(-50%, 50%); background: url(../image/plus.png) no-repeat center ;  width: 3.6em; height: 3.6em; transition: all .4s; border-radius: 50%;}
 .addToDo {background-color: var(--green);}
 .addToDo:hover {transform: translate(-50%, 50%) rotate(180deg);}
 .exitToDo {background-color: var(--red); transform: translate(-50%, 50%) rotate(45deg);}
