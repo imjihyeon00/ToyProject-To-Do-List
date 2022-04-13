@@ -5,9 +5,6 @@ const toDoBtns = document.querySelectorAll('.toDoBtn');
 //events
 addBtn.addEventListener('click', addToDoBox);
 delBtn.addEventListener('click', deleteToDoBox);
-toDoBtns.forEach(function(toDoBtn,i){
-    toDoBtn.addEventListener('click', function(){ toDoBtnClick(this) });
-});
 
 //변수
 let isNewBox = false;
@@ -39,7 +36,7 @@ function addToDoBox() {
                 <input type="text" placeholder="할 일을 입력해 주세요.">
             </div>
         </div>
-        <button class="toDoBtn addToDo" type="button"></button>
+        <button class="toDoBtn addToDo" onclick="javascript:toDoBtnClick(this);" type="button"></button>
     </div>`;
 
     
@@ -67,8 +64,17 @@ function toDoBtnClick(btn) {
 }
 
 function enterCheck() {
-    if(window.event.keyCode == 13){
-        console.log('gg');
+    const target = window.event.target;
+    const keyCode = window.event.keyCode;
+    
+    // to do list 박스 추가시 타이틀 입력
+    if( keyCode == 13 && target.classList.contains('toDoListTit')){
+        const div = document.createElement('div');
+        div.classList.add('tit');
+        div.innerText = target.value;
+        target.before(div);
+        target.remove();
+        isNewBox = false;
     }
 }
 
