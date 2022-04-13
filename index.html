@@ -27,7 +27,7 @@
                 <!-- BoxArea -->
                 <div class="boxArea">
 
-                    <label for="box1" class="boxLabel">
+                    <!-- <label for="box1" class="boxLabel">
                         <input type="checkbox" id="box1" class="checkBoxs" disabled>
                         <div class="box">
                             <div class="title">
@@ -58,57 +58,7 @@
                         <div class="box">
                             <div class="title">
                                 <div class="in">
-                                    <div class="tit">제목을 입력해 주세요!</div>
-                                    <span class="date">2022년 x월 x일 x요일 </span>
-                                    <span class="listCount">할 일이 n개 남았습니다.</span>
-                                </div>
-                            </div>
-                            <div class="toDoLists">
-                                <div class="in">
-                                    <ul>
-                                        <li><input type="checkbox" name="" id="box2_list1"><label for="box2_list1">해야 할 일 텍스트1</label><span class="delListBtn"></span></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="addToDoArea">
-                                <div class="in">
-                                    <input type="text" placeholder="할 일을 입력해 주세요.">
-                                </div>
-                            </div>
-                            <button class="toDoBtn addToDo" onclick="javascript:toDoBtnClick(this);" type="button"></button>
-                        </div>
-                    </label>
-                    <label for="box3" class="boxLabel">
-                        <input type="checkbox" id="box3" class="checkBoxs" disabled>
-                        <div class="box">
-                            <div class="title">
-                                <div class="in">
-                                    <div class="tit">제목을 입력해 주세요!</div>
-                                    <span class="date">2022년 x월 x일 x요일 </span>
-                                    <span class="listCount">할 일이 n개 남았습니다.</span>
-                                </div>
-                            </div>
-                            <div class="toDoLists">
-                                <div class="in">
-                                    <ul>
-                                        <li><input type="checkbox" name="" id="box3_list1"><label for="box3_list1">해야 할 일 텍스트1</label><span class="delListBtn"></span></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="addToDoArea">
-                                <div class="in">
-                                    <input type="text" placeholder="할 일을 입력해 주세요.">
-                                </div>
-                            </div>
-                            <button class="toDoBtn addToDo" onclick="javascript:toDoBtnClick(this);" type="button"></button>
-                        </div>
-                    </label>
-                    <label for="box4" class="boxLabel">
-                        <input type="checkbox" id="box4" class="checkBoxs" disabled>
-                        <div class="box">
-                            <div class="title">
-                                <div class="in">
-                                    <input class="toDoListTit" type="text" placeholder="제목을 입력해 주세요." />
+                                    <input class="toDoListTit" type="text" placeholder="제목을 입력해 주세요." onkeyup="enterCheck();" autofocus />
                                     <span class="date">2022년 x월 x일 x요일 </span>
                                     <span class="listCount">할 일이 n개 남았습니다.</span>
                                 </div>
@@ -127,7 +77,8 @@
                             </div>
                             <button class="toDoBtn addToDo" onclick="javascript:toDoBtnClick(this);" type="button"></button>
                         </div>
-                    </label>
+                    </label> -->
+                    
 
                 </div>
 
@@ -153,6 +104,7 @@
     <div id="mask"></div>
     
     <script src="./js/style_common.js"></script>
+    <script src="./js/modal.js"></script>
     <script src="./js/common.js"></script>
 </body>
 </html>

@@ -1,29 +1,40 @@
 document.addEventListener("DOMContentLoaded", function(){
+    let myToDoLists = new Array();
 
+    init();
 });
 
-/* 오픈 */
-function layerOpen(id) {
-    const $id = document.querySelector(id);
-    const idx = document.defaultView.getComputedStyle($id).getPropertyValue("z-index");
-    
-    document.querySelector('body').style.overflow = 'hidden';
-    document.querySelector('#mask').style.cssText = `opacity: .6; display: block; z-index: ${idx-1};`;
-    $id.style.display = 'flex';
-}
 
-/* 클로즈 함수 */
-function layerClose(id){
-    const $id = document.querySelector(id);
-    const $mask = document.querySelector('#mask');
-    const idx = document.defaultView.getComputedStyle($id).getPropertyValue("z-index");
-    
-    $id.style.display = 'none';
-    document.querySelector('body').style.overflow = '';
-    $mask.style.cssText = `z-index: 99999; display: none;`;
+
+function init() {
+    // localstorage 여부 확인
+    // 존재 : 리스트 출력
+    // 비존재 : addToDoBox() 호출
+
+    if(localStorage.getItem('myToDoLists')){
+        // 존재 : 리스트 출력
+    } else {
+        addToDoBox();
+    }
 }
 
 
-function  init() {
+//localstorage 조회
+function searchLocal() {
+    let jsonData = JSON.stringify(localStorage.getItem('myToDoLists'));
+}
+
+//localstorage 생성
+function addLocal() {
+    
+}
+
+//localstorage 삭제
+function delLocal() {
+    
+}
+
+//localstorage 수정
+function modLocal() {
     
 }

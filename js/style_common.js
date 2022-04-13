@@ -19,9 +19,9 @@ function addToDoBox() {
     <div class="box">
         <div class="title">
             <div class="in">
-                <input class="toDoListTit" type="text" placeholder="제목을 입력해 주세요." onkeyup="enterCheck();" />
+                <input class="toDoListTit" type="text" placeholder="제목을 입력해 주세요." onkeyup="enterCheck();" autofocus />
                 <span class="date">${date.getFullYear()}년 ${date.getMonth() + 1}월 ${date.getDate()}일 ${dayList[date.getDay()]}요일 </span>
-                <span class="listCount">할 일이 n개 남았습니다.</span>
+                <span class="listCount">할 일이 <i>0</i>개 남았습니다.</span>
             </div>
         </div>
         <div class="toDoLists">
@@ -33,7 +33,7 @@ function addToDoBox() {
         </div>
         <div class="addToDoArea">
             <div class="in">
-                <input type="text" placeholder="할 일을 입력해 주세요.">
+                <input type="text" placeholder="할 일을 입력 후, Enter를 누르세요">
             </div>
         </div>
         <button class="toDoBtn addToDo" onclick="javascript:toDoBtnClick(this);" type="button"></button>
@@ -66,7 +66,7 @@ function toDoBtnClick(btn) {
 function enterCheck() {
     const target = window.event.target;
     const keyCode = window.event.keyCode;
-    
+
     // to do list 박스 추가시 타이틀 입력
     if( keyCode == 13 && target.classList.contains('toDoListTit')){
         const div = document.createElement('div');
