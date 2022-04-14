@@ -13,9 +13,10 @@ let isNewBox = false;
 function addToDoBox() {
     const dayList = ['일', '월', '화', '수', '목', '금', '토'];
     const date = new Date();
+    const boxNo = myToDoLists.length == 0 ? 0 : myToDoLists.length;
 
     let txt = 
-    `<input type="checkbox" id="box4" class="checkBoxs" disabled>
+    `<input type="checkbox" id="box${boxNo}" class="checkBoxs" disabled>
     <div class="box">
         <div class="title">
             <div class="in">
@@ -42,6 +43,7 @@ function addToDoBox() {
     if (!isNewBox) {
         const label = document.createElement('label');
         label.classList.add('boxLabel');
+        label.htmlFor = 'box'+myToDoLists.length;
         label.innerHTML =txt;
         document.querySelector('.boxArea').appendChild(label);
     } else {
@@ -72,6 +74,7 @@ function enterCheck() {
         div.classList.add('tit');
         div.innerText = target.value;
         target.before(div);
+        addLocalToDoBox(target.value, target.nextElementSibling.innerText);
         target.remove();
         isNewBox = false;
     }
@@ -79,7 +82,7 @@ function enterCheck() {
     // to do list의 새로운 할 일 입력시
     if( keyCode == 13 && target.classList.contains('newList')){
         const text = target.value;
-        const no = target.closest('.boxLabel').htmlFor.slice(-1)-1;
+        const no = target.closest('.boxLabel').htmlFor.slice(-1);
 
         addLocalToDo(text, no);
     }

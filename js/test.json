@@ -1,7 +1,6 @@
 {"myToDoLists":
     [
         {
-            "no":1,
             "title": "to do List1",
             "date": "2022년 x월 x일 x요일",
             "toDo": [
@@ -20,7 +19,6 @@
             ]
         },
         {
-            "no":2,
             "title": "to do List2",
             "date": "2022년 x월 x일 x요일",
             "toDo": [

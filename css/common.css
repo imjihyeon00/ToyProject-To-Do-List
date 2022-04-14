@@ -47,7 +47,7 @@ header h1 {font-size: 2.5rem; font-weight: bold;}
 .box .title .listCount {font-size: 0.85rem; color: var(--green); font-weight: 600; padding-top: 30px;}
 .box .title .listCount i {font-style: normal;}
 .box .toDoLists {}
-.box .toDoLists .in {}
+.box .toDoLists .in {padding-bottom: 30px;}
 .box .toDoLists ul {min-height: 280px; height: 280px; overflow-y: auto;}
 .box .toDoLists ul::-webkit-scrollbar { width: 4px;}
 .box .toDoLists ul::-webkit-scrollbar-thumb { background-color: #2f3542; border-radius: 10px;}
