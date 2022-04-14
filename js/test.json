@@ -4,18 +4,18 @@
             "no":1,
             "title": "to do List1",
             "date": "2022년 x월 x일 x요일",
-            "to do": [
+            "toDo": [
                 {
                     "text": "해야 할 일1",
-                    "complete": "F"
+                    "complete": false
                 },
                 {
                     "text": "해야 할 일2",
-                    "complete": "Y"
+                    "complete": false
                 },
                 {
                     "text": "해야 할 일3",
-                    "complete": "F"
+                    "complete": true
                 }
             ]
         },
@@ -23,18 +23,18 @@
             "no":2,
             "title": "to do List2",
             "date": "2022년 x월 x일 x요일",
-            "to do": [
+            "toDo": [
                 {
                     "text": "해야 할 일1",
-                    "complete": "F"
+                    "complete": true
                 },
                 {
                     "text": "해야 할 일2",
-                    "complete": "Y"
+                    "complete": false
                 },
                 {
                     "text": "해야 할 일3",
-                    "complete": "F"
+                    "complete": true
                 }
             ]
         }

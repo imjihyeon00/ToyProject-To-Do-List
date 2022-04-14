@@ -27,13 +27,12 @@ function addToDoBox() {
         <div class="toDoLists">
             <div class="in">
                 <ul>
-                    <li><input type="checkbox" name="" id="box4_list1"><label for="box4_list1">해야 할 일 텍스트1</label><span class="delListBtn"></span></li>
                 </ul>
             </div>
         </div>
         <div class="addToDoArea">
             <div class="in">
-                <input type="text" placeholder="할 일을 입력 후, Enter를 누르세요">
+                <input class="newList" type="text" placeholder="할 일을 입력 후, Enter를 누르세요" onkeyup="enterCheck();" />
             </div>
         </div>
         <button class="toDoBtn addToDo" onclick="javascript:toDoBtnClick(this);" type="button"></button>
@@ -46,7 +45,7 @@ function addToDoBox() {
         label.innerHTML =txt;
         document.querySelector('.boxArea').appendChild(label);
     } else {
-        alert('이미 새로운 To Do List가 존재합니다. 제목을 입력해 주세요.')
+        alert('이미 새로운 To Do List가 존재합니다.\n제목을 입력 후 Enter를 눌러주세요.')
     }
 
     isNewBox = true;
@@ -75,6 +74,14 @@ function enterCheck() {
         target.before(div);
         target.remove();
         isNewBox = false;
+    }
+
+    // to do list의 새로운 할 일 입력시
+    if( keyCode == 13 && target.classList.contains('newList')){
+        const text = target.value;
+        const no = target.closest('.boxLabel').htmlFor.slice(-1)-1;
+
+        addLocalToDo(text, no);
     }
 }
 
