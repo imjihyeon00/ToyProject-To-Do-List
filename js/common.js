@@ -57,8 +57,8 @@ function drawLocal() {
                             <ul>`;
                             myToDo.toDo.forEach((el,idx)=>{
                                 txt += el.complete === true ? 
-                                `<li><input type="checkbox" name="" id="box${myToDo.no}_list${idx+1}" checked /><label for="box${myToDo.no}_list${idx+1}">${el.text}</label><span class="delListBtn"></span></li>` :
-                                `<li><input type="checkbox" name="" id="box${myToDo.no}_list${idx+1}" /><label for="box${myToDo.no}_list${idx+1}">${el.text}</label><span class="delListBtn"></span></li>`;
+                                `<li><input type="checkbox" name="" id="box${index}_list${idx+1}" checked /><label for="box${index}_list${idx+1}">${el.text}</label><span class="delListBtn"></span></li>` :
+                                `<li><input type="checkbox" name="" id="box${index}_list${idx+1}" /><label for="box${index}_list${idx+1}">${el.text}</label><span class="delListBtn"></span></li>`;
                             });                            
             txt += `</ul>
                         </div>
