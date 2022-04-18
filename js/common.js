@@ -57,8 +57,8 @@ function drawLocal() {
                             <ul>`;
                             myToDo.toDo.forEach((el,idx)=>{
                                 txt += el.complete === true ? 
-                                `<li><input type="checkbox" name="" id="box${index}_list${idx}" checked onChange="modLocal(this)" /><label for="box${index}_list${idx}">${el.text}</label><span class="delListBtn"></span></li>` :
-                                `<li><input type="checkbox" name="" id="box${index}_list${idx}" onChange="modLocal(this)"/><label for="box${index}_list${idx}">${el.text}</label><span class="delListBtn"></span></li>`;
+                                `<li><input type="checkbox" name="" id="box${index}_list${idx}" checked onChange="modLocal(this)" /><label for="box${index}_list${idx}">${el.text}</label><span class="delListBtn" onClick="delLocalToDo(this)"></span></li>` :
+                                `<li><input type="checkbox" name="" id="box${index}_list${idx}" onChange="modLocal(this)"/><label for="box${index}_list${idx}">${el.text}</label><span class="delListBtn" onClick="delLocalToDo(this)"></span></li>`;
                             });                            
             txt += `</ul>
                         </div>
@@ -112,12 +112,23 @@ function addLocalToDo(text, no) {
 
 //localstorage 삭제
 function delLocal() {
-    
 }
 
 //localstorage 할 일 삭제
-function delLocalToDo() {
-    
+function delLocalToDo(event) {
+    const input = event.parentNode.querySelector('input');
+    const indexStr = ['box', 'list'];
+
+    //myToDoList에서 내가 선택한 위치를 찾음
+    const boxIdx = Number(input.id.split('_')[0].replace(indexStr[0],''));
+    const listIdx = Number(input.id.split('_')[1].replace(indexStr[1],''));
+
+    //값을 삭제
+    myToDoLists[boxIdx].toDo.splice(listIdx, 1);
+    addLocal();
+
+    //다시그림
+    drawLocal();
 }
 
 //localstorage 수정
