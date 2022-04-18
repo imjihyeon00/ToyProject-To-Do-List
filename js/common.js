@@ -57,8 +57,8 @@ function drawLocal() {
                             <ul>`;
                             myToDo.toDo.forEach((el,idx)=>{
                                 txt += el.complete === true ? 
-                                `<li><input type="checkbox" name="" id="box${index}_list${idx+1}" checked /><label for="box${index}_list${idx+1}">${el.text}</label><span class="delListBtn"></span></li>` :
-                                `<li><input type="checkbox" name="" id="box${index}_list${idx+1}" /><label for="box${index}_list${idx+1}">${el.text}</label><span class="delListBtn"></span></li>`;
+                                `<li><input type="checkbox" name="" id="box${index}_list${idx}" checked onChange="modLocal(this)" /><label for="box${index}_list${idx}">${el.text}</label><span class="delListBtn"></span></li>` :
+                                `<li><input type="checkbox" name="" id="box${index}_list${idx}" onChange="modLocal(this)"/><label for="box${index}_list${idx}">${el.text}</label><span class="delListBtn"></span></li>`;
                             });                            
             txt += `</ul>
                         </div>
@@ -116,6 +116,17 @@ function delLocal() {
 }
 
 //localstorage 수정
-function modLocal() {
-    
+function modLocal(event) {
+    const indexStr = ['box', 'list'];
+
+    //myToDoList에서 내가 선택한 위치를 찾음
+    const boxIdx = Number(event.id.split('_')[0].replace(indexStr[0],''));
+    const listIdx = Number(event.id.split('_')[1].replace(indexStr[1],''));
+
+    //값을 수정
+    myToDoLists[boxIdx].toDo[listIdx].complete = event.checked;
+    addLocal();
+
+    //다시그림
+    drawLocal();
 }
