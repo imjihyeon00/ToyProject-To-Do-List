@@ -115,6 +115,11 @@ function delLocal() {
     
 }
 
+//localstorage 할 일 삭제
+function delLocalToDo() {
+    
+}
+
 //localstorage 수정
 function modLocal(event) {
     const indexStr = ['box', 'list'];
