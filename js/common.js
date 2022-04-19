@@ -146,3 +146,32 @@ function modLocal(event) {
     //다시그림
     drawLocal();
 }
+
+
+
+function modalNoBtn() {
+    const checkBoxs = document.querySelectorAll('.checkBoxs');
+
+    checkBoxs.forEach(function (checkBox) {
+        checkBox.checked = false;
+        checkBox.disabled = true;
+    });
+    
+    delBtn.classList.remove('active');
+    layerClose('#delModal');
+}
+
+function modalYseBtn() {
+    const selectLists = [];
+    //해당 위치들 배열화
+    document.querySelectorAll('.boxLabel').forEach((el, idx)=>{
+        if(el.querySelector('.checkBoxs').checked){
+            selectLists.push(Number(el.htmlFor.replace('box','')))
+        }
+    });
+    //myToDoLists에서 배열에 있는 위치 값들 삭제
+    myToDoLists = myToDoLists.filter((item, idx) => !selectLists.includes(idx));
+    addLocal();
+    drawLocal();
+    layerClose('#delModal');
+}

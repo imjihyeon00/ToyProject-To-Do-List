@@ -10,6 +10,7 @@ delBtn.addEventListener('click', deleteToDoBox);
 let isNewBox = false;
 
 //function
+
 function addToDoBox() {
     const dayList = ['일', '월', '화', '수', '목', '금', '토'];
     const date = new Date();
@@ -20,7 +21,7 @@ function addToDoBox() {
     <div class="box">
         <div class="title">
             <div class="in">
-                <input class="toDoListTit" type="text" placeholder="제목을 입력해 주세요." onkeyup="enterCheck();" autofocus />
+                <input class="toDoListTit autoFocus" type="text" placeholder="제목을 입력해 주세요." onkeyup="enterCheck();" />
                 <span class="date">${date.getFullYear()}년 ${date.getMonth() + 1}월 ${date.getDate()}일 ${dayList[date.getDay()]}요일 </span>
                 <span class="listCount">할 일이 <i>0</i>개 남았습니다.</span>
             </div>
@@ -46,6 +47,7 @@ function addToDoBox() {
         label.htmlFor = 'box'+myToDoLists.length;
         label.innerHTML =txt;
         document.querySelector('.boxArea').appendChild(label);
+        document.querySelector('.autoFocus').focus();
     } else {
         alert('이미 새로운 To Do List가 존재합니다.\n제목을 입력 후 Enter를 눌러주세요.')
     }
@@ -55,13 +57,20 @@ function addToDoBox() {
 
 function toDoBtnClick(btn) {
     const $toDoBtn = btn;
-    $toDoBtn.classList.toggle('addToDo');
-    $toDoBtn.classList.toggle('exitToDo');
-    if(!$toDoBtn.classList.contains('addToDo')){
-        $toDoBtn.previousElementSibling.style.display = 'block';
+
+    if (!isNewBox) {
+        $toDoBtn.classList.toggle('addToDo');
+        $toDoBtn.classList.toggle('exitToDo');
+        if(!$toDoBtn.classList.contains('addToDo')){
+            $toDoBtn.previousElementSibling.style.display = 'block';
+        } else {
+            $toDoBtn.previousElementSibling.style.display = 'none';
+        }
     } else {
-        $toDoBtn.previousElementSibling.style.display = 'none';
+        alert('할 일 박스의 제목을 먼저 입력해주세요.\n제목을 입력 후 Enter를 눌러주세요.')
     }
+
+    
 }
 
 function enterCheck() {
@@ -124,16 +133,4 @@ function deleteToDoBox() {
             delBtn.classList.remove('active');
         }
     }
-}
-
-function modalNoBtn() {
-    const checkBoxs = document.querySelectorAll('.checkBoxs');
-
-    checkBoxs.forEach(function (checkBox) {
-        checkBox.checked = false;
-        checkBox.disabled = true;
-    });
-    
-    delBtn.classList.remove('active');
-    layerClose('#delModal');
 }
